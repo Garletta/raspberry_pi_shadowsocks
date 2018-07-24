@@ -81,4 +81,4 @@ raspberry pi 3b+ 树莓派 shadowsocks 科学上网
   >代理服务器：127.0.0.1  
   >代理端口：1080  
 
-
+![image](https://github.com/Garletta/raspberry_pi_shadowsocks/tree/master/images/raspberry_youtube.png)  
