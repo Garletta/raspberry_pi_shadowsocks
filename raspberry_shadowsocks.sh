@@ -26,7 +26,7 @@ sudo echo "
 }" > /etc/shadowsocks/config.json
 
 cd /etc
-sed -e '/exit 0/d' rc.local > rcrc.local
+sed -e '/^\exit 0/d' rc.local > rcrc.local
 sudo chmod 777 rcrc.local
 sudo rm -rf rc.local
 sudo mv rcrc.local rc.local
@@ -35,6 +35,7 @@ sudo /usr/bin/sslocal -c /etc/shadowsocks/config.json -d stop
 sudo /usr/bin/sslocal -c /etc/shadowsocks/config.json -d start
 exit 0
 " >> rc.local
+sudo chmod 755 /etc/rc.local
 
 sudo /usr/bin/sslocal -c /etc/shadowsocks/config.json -d start
 
