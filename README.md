@@ -67,7 +67,12 @@ raspberry pi 3b+ 树莓派 shadowsocks 科学上网
 
 添加开机启动：  
 
-    sudo echo "/usr/bin/local -c /etc/shadowsocks/config.json -d start" >> /etc/rc.local  
+    sudo vim /etc/rc.local  
+
+在文件尾部 `exit 0` 前面添加如下两行  
+
+    sudo /usr/bin/local -c /etc/shadowsocks/config.json -d stop  
+    sudo /usr/bin/local -c /etc/shadowsocks/config.json -d start  
 
 至此，ss 客户端已经配置完毕！！！
 
