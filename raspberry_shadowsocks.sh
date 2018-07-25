@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/bash
 
 sudo apt-get -y install python-pip python-m2crypto
 sudo apt-get -y install shadowsocks
@@ -25,6 +25,9 @@ sudo echo "
     \"fast_open\":false
 }" > /etc/shadowsocks/config.json
 
+sudo sed -i '/libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)/c\libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)' /usr/local/lib/python2.7/distpackages/shadowsocks/crypto/openssl.py
+sudo sed -i '/libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (self._ctx)/c\libcrypto.EVP_CIPHER_CTX_reset.argtypes = (self._ctx)' /usr/local/lib/python2.7/distpackages/shadowsocks/crypto/openssl.py
+
 cd /etc
 sed -e '/^\exit 0/d' rc.local > rcrc.local
 sudo chmod 777 rcrc.local
@@ -40,4 +43,3 @@ sudo chmod 755 /etc/rc.local
 sudo /usr/bin/sslocal -c /etc/shadowsocks/config.json -d start
 
 echo "Success to configure your client!"
-
