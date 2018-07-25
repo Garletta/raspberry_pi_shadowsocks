@@ -57,7 +57,7 @@ raspberry pi 3b+ 树莓派 shadowsocks 科学上网
 
     libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)  
     #改为  
-    ibcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)
+    libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)
 >
     libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (self._ctx)  
     #改为  
