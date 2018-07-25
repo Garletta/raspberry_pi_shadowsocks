@@ -86,4 +86,8 @@ raspberry pi 3b+ 树莓派 shadowsocks 科学上网
   >代理服务器：127.0.0.1  
   >代理端口：1080  
 
+## raspberry_shadowsocks.sh  
+一键配置脚本，包括以上全部下载和全部修改  
+用户只需按照提示提供自己梯子的相关信息即可  
+
 ![image](https://github.com/Garletta/raspberry_pi_shadowsocks/tree/master/images/raspberry_youtube.png)  
