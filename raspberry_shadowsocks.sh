@@ -25,7 +25,16 @@ sudo echo "
     \"fast_open\":false
 }" > /etc/shadowsocks/config.json
 
-sudo echo "/usr/bin/sslocal -c /etc/shadowsocks/config.json -d start" >> /etc/rc.local
+cd /etc
+sed -e '/exit 0/d' rc.local > rcrc.local
+sudo chmod 777 rcrc.local
+sudo rm -rf rc.local
+sudo mv rcrc.local rc.local
+sudo echo "
+sudo /usr/bin/sslocal -c /etc/shadowsocks/config.json -d stop
+sudo /usr/bin/sslocal -c /etc/shadowsocks/config.json -d start
+exit 0
+" >> rc.local
 
 sudo /usr/bin/sslocal -c /etc/shadowsocks/config.json -d start
 
